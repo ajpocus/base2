@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # base2.py: determines whether n is a power of 2 based on logarithms
-#
+
 # Copyright (c) 2010, Austin Pocus
 # All rights reserved.
 #
@@ -28,14 +28,18 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import sys
-import math
+from math import log
+from sys import argv
 
 def base2(n):
-    if (n == (0 or 1)):
+    if (n <= 0):
 	return False
-    if ( (math.log10(n)/math.log10(2)).is_integer() == True):
+    if (n == 1 or (log(n)/log(2)).is_integer()):
 	return True
     else:
 	return False
 
+if __name__ == '__main__':
+    n = float(argv[1])
+    print base2(n)
+ 
